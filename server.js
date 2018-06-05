@@ -29,14 +29,14 @@ const url = process.env.MONGOLAB_URI;
 //====ROOT DIRECTORY===//
 
 app.get('/', function(req, res) {
-    res.json('you did it');
+    res.json('you did it twice!!');
 });
 
 //==========================//
 
 //====GET ALL SIGNATURES===//
 
-app.get('/api/becas', function(req, res) {
+app.get('/becas', function(req, res) {
     Becas.find({}).then(eachOne => {
         res.json(eachOne);
     })
@@ -46,7 +46,7 @@ app.get('/api/becas', function(req, res) {
 
 //====POST NEW SIGNATURE===//
 
-app.post('/api/signatures', function(req, res) {
+app.post('/becas', function(req, res) {
     Becas.create({
         numControl: req.body.numControl,
         clave: req.body.clave,
