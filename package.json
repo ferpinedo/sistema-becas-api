@@ -1,0 +1,24 @@
+{
+  "name": "sistema-becas-api",
+  "version": "1.0.0",
+  "description": "API para la gestión de becas de alumnos de una universidad.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pinedo98/sistema-de-becas.git"
+  },
+  "author": "Fernando Pinedo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pinedo98/sistema-de-becas/issues"
+  },
+  "homepage": "https://github.com/pinedo98/sistema-de-becas#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-validator": "^5.2.0",
+    "mongoose": "^5.1.4"
+  }
+}
