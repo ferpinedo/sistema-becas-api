@@ -37,6 +37,7 @@ app.get('/', function(req, res) {
 //====GET ALL SIGNATURES===//
 
 app.get('/becas', function(req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
     Becas.find({}).then(eachOne => {
         res.json(eachOne);
     })
@@ -47,6 +48,7 @@ app.get('/becas', function(req, res) {
 //====POST NEW SIGNATURE===//
 
 app.post('/becas', function(req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
     Becas.create({
         numControl: req.body.numControl,
         clave: req.body.clave,
