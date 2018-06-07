@@ -7,13 +7,13 @@ const path = require('path');
 const expressValidator = require('express-validator');
 var cors = require('cors');
 const mongoose = require('mongoose');
-const Becas = require('./models/becas.js');
+const Beca = require('./model/Becas.js');
 const app = express();
-const url = process.env.MONGOLAB_URI;
+const url = 'mongodb://fpinedo:Pinedo98@ds247830.mlab.com:47830/sistema-becas'
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(cors());
+// app.use(bodyParser.json());
+// app.use(cors());
 
 // const url = 'mongodb://localhost:27017/sistema-becas'; // Local
 
@@ -30,11 +30,8 @@ app.get('/', function(req, res) {
 //====GET ALL SIGNATURES===//
 
 app.get('/becas', function(req, res) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.set('Access-Control-Allow-Methods','GET,POST');
-    res.set('Access-Control-Allow-Headers','X-Requested-With,Content-Type');
 
-    Becas.find({}).then(eachOne => {
+    Beca.find({}).then(eachOne => {
         res.json(eachOne);
     })
 });
@@ -49,7 +46,7 @@ app.post('/becas', function(req, res) {
     res.header("Access-Control-Allow-Origin", "*");
     res.set('Access-Control-Allow-Methods','GET,POST');
     res.set('Access-Control-Allow-Headers','X-Requested-With,Content-Type');
-    Becas.create({
+    Beca.create({
         numControl: req.body.numControl,
         claveBeca: req.body.claveBeca,
         fechaInicio: req.body.fechaInicio,
