@@ -51,7 +51,7 @@ app.post('/becas', function(req, res) {
     res.header("Access-Control-Allow-Origin", "*");
     Becas.create({
         numControl: req.body.numControl,
-        clave: req.body.clave,
+        claveBeca: req.body.claveBeca,
         fechaInicio: req.body.fechaInicio,
         fechaVencimiento: req.body.fechaVencimiento,
         estatus: req.body.estatus
