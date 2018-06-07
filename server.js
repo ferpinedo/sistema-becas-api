@@ -45,6 +45,9 @@ app.get('/becas', function(req, res) {
 //====POST NEW SIGNATURE===//
 
 app.post('/becas', function(req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.set('Access-Control-Allow-Methods','GET,POST');
+    res.set('Access-Control-Allow-Headers','X-Requested-With,Content-Type');
     Becas.create({
         numControl: req.body.numControl,
         claveBeca: req.body.claveBeca,
