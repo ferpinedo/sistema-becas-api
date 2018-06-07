@@ -5,16 +5,15 @@ const parseurl = require('parseurl');
 const bodyParser = require('body-parser');
 const path = require('path');
 const expressValidator = require('express-validator');
-var cors = require('cors')
+var cors = require('cors');
 const mongoose = require('mongoose');
 const Becas = require('./models/becas.js');
 const app = express();
 const url = process.env.MONGOLAB_URI;
 
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
-
-app.use(cors())
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cors());
 
 // const url = 'mongodb://localhost:27017/sistema-becas'; // Local
 
@@ -45,6 +44,8 @@ app.get('/becas', function(req, res) {
 //====POST NEW SIGNATURE===//
 
 app.post('/becas', function(req, res) {
+    console.log("Request: " + req + req.body);
+    console.log("Request: " + JSON.stringify(req.body));
     res.header("Access-Control-Allow-Origin", "*");
     res.set('Access-Control-Allow-Methods','GET,POST');
     res.set('Access-Control-Allow-Headers','X-Requested-With,Content-Type');
