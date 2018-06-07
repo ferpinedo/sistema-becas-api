@@ -56,17 +56,17 @@ app.get('/becas', function(req, res) {
 
 //====POST NEW SIGNATURE===//
 
-app.post('/becas', function(req, res) {
-    Becas.create({
-        numControl: req.body.numControl,
-        claveBeca: req.body.claveBeca,
-        fechaInicio: req.body.fechaInicio,
-        fechaVencimiento: req.body.fechaVencimiento,
-        estatus: req.body.estatus
-    }).then(beca => {
-        res.json(beca)
-    });
-});
+// app.post('/becas', function(req, res) {
+//     Becas.create({
+//         numControl: req.body.numControl,
+//         claveBeca: req.body.claveBeca,
+//         fechaInicio: req.body.fechaInicio,
+//         fechaVencimiento: req.body.fechaVencimiento,
+//         estatus: req.body.estatus
+//     }).then(beca => {
+//         res.json(beca)
+//     });
+// });
 
 app.post("/becas", (req, res) => {
     req.body.save()
