@@ -26,7 +26,7 @@ app.get('/', function(req, res) {
 });
 
 
-app.get('/becas', BecasHandler.getAllItems());
+app.get('/becas', BecasHandler.getAllItems);
 
 // get a beca with specific ID
 app.get('/becas/:_id', function(req, res) {
