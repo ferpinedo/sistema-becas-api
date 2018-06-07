@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/pinedo98/sistema-de-becas#readme",
   "dependencies": {
+    "cors": "^2.8.4",
     "express": "^4.16.3",
     "express-validator": "^5.2.0",
     "mongoose": "^5.1.4"
