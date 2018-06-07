@@ -68,6 +68,16 @@ app.post('/becas', function(req, res) {
     });
 });
 
+app.post("/becas", (req, res) => {
+    req.body.save()
+        .then(item => {
+            res.send("item saved to database");
+        })
+        .catch(err => {
+            res.status(400).send("unable to save to database");
+        });
+});
+
 //==========================//
 
 //====MONGOOSE CONNECT===//
