@@ -1,35 +1,21 @@
-const express = require('express');
-const app = express();
-
-const mongoose = require('mongoose');
-let database = require('./config/database');
-let BecasHandler = require('./api-handler/BecasHandler');
-let bodyParser = require('body-parser');         // pull information from HTML POST (express4)
-let methodOverride = require('method-override');
-
-const port = process.env.PORT || 5656;
-
-app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
-app.use(bodyParser.json());                                     // parse application/json
-app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
-app.use(methodOverride());
+let Beca = require('../model/Beca');
 
 
-mongoose.connect(database.url);
-
-app.listen(port);
-console.log("App listening on port : " + port);
-
-//====ROOT DIRECTORY===//
-app.get('/', function(req, res) {
-    res.json('You are using \"sistema-becas-API\".');
-});
-
-
-app.get('/becas', BecasHandler.getAllItems());
+// get all becas
+function getAllItems(req, res) {
+    // use mongoose to get all todos in the database
+    Beca.find(function(err, becas) {
+        // if there is an error retrieving, send the error otherwise send data
+        if (err){
+            console.log(err.toString());
+            res.send(err.toString());
+        }
+        res.json(becas); // return all employees in JSON format
+    });
+}
 
 // get a beca with specific ID
-app.get('/becas/:_id', function(req, res) {
+function getItemById(req, res) {
     console.log("getting a beca with specific ID: " + req.params._id);
     let id = req.params._id;
     Beca.findById(id, function(err, beca) {
@@ -39,10 +25,10 @@ app.get('/becas/:_id', function(req, res) {
         }
         res.json(beca);
     });
-});
+}
 
 // create beca
-app.post('/becas', function(req, res) {
+function insertItem(req, res) {
     // create mongose method to create a new record into collection
     console.log("Pushing to becas: " + req.body);
     Beca.create({
@@ -65,10 +51,10 @@ app.post('/becas', function(req, res) {
             res.json(becas);
         });
     });
-});
+}
 
 // update beca
-app.put('/becas/:_id', function(req, res) {
+function updateItem(req, res) {
     console.log("Updating becas");
     // create mongose method to update a existing record into collection
     let id = req.params._id;
@@ -89,10 +75,10 @@ app.put('/becas/:_id', function(req, res) {
             res.send('Successfully! Beca updated - ' + beca.claveBeca);
         }
     });
-});
+}
 
 // delete a beca by id
-app.delete('/becas/:_id', function(req, res) {
+function deleteItem(req, res) {
     console.log(req.params._id);
     let id = req.params._id;
     Beca.remove({
@@ -105,4 +91,12 @@ app.delete('/becas/:_id', function(req, res) {
         else
             res.send('Successfully! Employee has been Deleted.');
     });
-});
+}
+
+module.exports = {
+    insertItem,
+    getAllItems,
+    getItemById,
+    updateItem,
+    deleteItem
+};
