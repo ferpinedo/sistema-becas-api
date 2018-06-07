@@ -1,15 +1,3 @@
-// const express = require('express')
-// const app = express()
-//
-// app.get('/', function (req, res) {
-//     res.send('Hello World!')
-// })
-//
-// app.listen(3000, function () {
-//     console.log('Example app listening on port 3000!!!')
-// })
-
-
 //====LIST DEPENDENCIES===//
 
 const express = require('express');
@@ -23,10 +11,10 @@ const Becas = require('./models/becas.js');
 const app = express();
 const url = process.env.MONGOLAB_URI;
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
 
-app.use(cors());
+app.use(cors())
 
 // const url = 'mongodb://localhost:27017/sistema-becas'; // Local
 
@@ -56,26 +44,16 @@ app.get('/becas', function(req, res) {
 
 //====POST NEW SIGNATURE===//
 
-// app.post('/becas', function(req, res) {
-//     Becas.create({
-//         numControl: req.body.numControl,
-//         claveBeca: req.body.claveBeca,
-//         fechaInicio: req.body.fechaInicio,
-//         fechaVencimiento: req.body.fechaVencimiento,
-//         estatus: req.body.estatus
-//     }).then(beca => {
-//         res.json(beca)
-//     });
-// });
-
-app.post("/becas", (req, res) => {
-    req.body.save()
-        .then(item => {
-            res.send("item saved to database");
-        })
-        .catch(err => {
-            res.status(400).send("unable to save to database");
-        });
+app.post('/becas', function(req, res) {
+    Becas.create({
+        numControl: req.body.numControl,
+        claveBeca: req.body.claveBeca,
+        fechaInicio: req.body.fechaInicio,
+        fechaVencimiento: req.body.fechaVencimiento,
+        estatus: req.body.estatus
+    }).then(beca => {
+        res.json(beca)
+    });
 });
 
 //==========================//

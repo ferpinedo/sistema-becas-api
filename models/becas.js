@@ -3,15 +3,27 @@ const mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
 const becasSchema = new Schema({
-    becas: {
+    claveBeca: {
         type: mongoose.Schema.Types.Mixed,
         required: true,
     },
-    message: {
+    numControl: {
         type: mongoose.Schema.Types.Mixed,
         required: true,
     },
-})
+    fechaInicio: {
+        type: mongoose.Schema.Types.Mixed,
+        required: true,
+    },
+    fechaVencimiento: {
+        type: mongoose.Schema.Types.Mixed,
+        required: true,
+    },
+    estatus: {
+        type: mongoose.Schema.Types.Mixed,
+        required: true,
+    },
+});
 
 const Becas = mongoose.model('Becas', becasSchema);
 
