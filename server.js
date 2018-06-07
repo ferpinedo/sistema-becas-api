@@ -23,8 +23,8 @@ const Becas = require('./models/becas.js');
 const app = express();
 const url = process.env.MONGOLAB_URI;
 
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use(cors());
 
