@@ -22,6 +22,9 @@ const Becas = require('./models/becas.js');
 const app = express();
 const url = process.env.MONGOLAB_URI;
 
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+
 // const url = 'mongodb://localhost:27017/sistema-becas'; // Local
 
 //=========================//
@@ -38,6 +41,9 @@ app.get('/', function(req, res) {
 
 app.get('/becas', function(req, res) {
     res.header("Access-Control-Allow-Origin", "*");
+    res.set('Access-Control-Allow-Methods','GET,POST');
+    res.set('Access-Control-Allow-Headers','X-Requested-With,Content-Type');
+
     Becas.find({}).then(eachOne => {
         res.json(eachOne);
     })
