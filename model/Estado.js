@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 let Schema = mongoose.Schema;
-const especialidadSchema = new Schema({
+const estadoSchema = new Schema({
         clave: {type: Number, unique:true},
         nombre: String
     },
@@ -9,5 +9,5 @@ const especialidadSchema = new Schema({
         versionKey: false
     });
 
-const Especialidad = mongoose.model('especialidades', especialidadSchema);
-module.exports = Especialidad;
+const Estado = mongoose.model('estados', estadoSchema);
+module.exports = Estado;
