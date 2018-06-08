@@ -10,5 +10,5 @@ const cuentaSchema = new Schema({
         versionKey: false
     });
 
-const Cuenta = mongoose.model('especialidades', cuentaSchema);
+const Cuenta = mongoose.model('cuentas', cuentaSchema);
 module.exports = Cuenta;
