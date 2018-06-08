@@ -9,7 +9,7 @@ let database = require('./config/database');
 const port = process.env.PORT || 5656;
 
 
-const Handler = require('./api-handler/GeneralHandler');
+let Handler = require('./api-handler/GeneralHandler');
 
 // Models
 let Beca = require('./model/Beca');
@@ -57,5 +57,21 @@ tables.forEach(table =>{
     app.delete('/' + table.name + '/:_id', tableHandler.deleteItem);
 });
 
-let becasHandler = new Handler(Beca);
- app.get('/becas', becasHandler.getAllItems);
+
+
+/*
+{
+    "numControl": 16051859,
+    "nombres": "Fernando",
+    "apellidoPaterno":"Pinedo",
+    "apellidoMaterno": "Orta",
+    "especialidad": 1,
+    "fechaNacimiento": "14/10/1998",
+    "correo": "fernando.pinedo@outlook.com",
+    "telefono": "(844)186-8125",
+    "direccion": "Zafiro #376",
+    "colonia": "Miravalle",
+    "municipio": "Saltillo",
+    "estado": 1
+}
+ */
