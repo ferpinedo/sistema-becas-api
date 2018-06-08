@@ -39,12 +39,12 @@ app.get('/', function(req, res) {
 
 
 let tables = [
-    {schema: Beca, name: "becas"},
-    {schema: Alumno, name: "alumnos"},
-    {schema: Especialidad, name: "especialidades"},
-    {schema: Estado, name: "estados"},
-    {schema: Institucion, name: "instituciones"},
-    {schema: TipoBeca, name: "tipos-de-becas"}
+    {schema: Beca, name: 'becas'},
+    {schema: Alumno, name: 'alumnos'},
+    {schema: Especialidad, name: 'especialidades'},
+    {schema: Estado, name: 'estados'},
+    {schema: Institucion, name: 'instituciones'},
+    {schema: TipoBeca, name: 'tipos-de-becas'}
 ];
 
 
