@@ -18,6 +18,7 @@ let Especialidad = require('./model/Especialidad');
 let Estado = require('./model/Estado');
 let Institucion = require('./model/Institucion');
 let TipoBeca = require('./model/TipoBeca');
+let Cuenta = require('./model/Cuenta');
 
 
 // Configurations
@@ -49,7 +50,8 @@ let tables = [
     {schema: Especialidad, name: 'especialidades'},
     {schema: Estado, name: 'estados'},
     {schema: Institucion, name: 'instituciones'},
-    {schema: TipoBeca, name: 'tipos-de-becas'}
+    {schema: TipoBeca, name: 'tipos-de-becas'},
+    {schema: Cuenta, name: 'cuentas'}
 ];
 
 
