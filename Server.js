@@ -56,3 +56,6 @@ tables.forEach(table =>{
     app.put('/' + table.name + '/:_id', tableHandler.updateItem);
     app.delete('/' + table.name + '/:_id', tableHandler.deleteItem);
 });
+
+let becasHandler = new Handler(Beca);
+ app.get('/becas', becasHandler.getAllItems);
