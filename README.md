@@ -1,6 +1,3 @@
-#### Autor: Fernando Josué Pinedo Orta
-#### Clase: Programación Web, 17:00 - 18:00
-___________________________________________
 # Sistema-becas-API
 Este proyecto consiste en una REST API para poder manipular la información de una base de datos para un sistema de becas.
 Utiliza mongoose y express para hacer la conexión con una base de datos no relacional de mongoDB que esta alojada en los servidores de mongoLab.Con esta API se pueden hacer todas las funciones CRUD a la información.
