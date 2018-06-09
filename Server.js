@@ -83,22 +83,3 @@ tables.forEach(table =>{
     app.put('/' + table.name + '/:_id', tableHandler.updateItem);
     app.delete('/' + table.name + '/:_id', tableHandler.deleteItem);
 });
-
-
-
-/*
-{
-    "numControl": 16051859,
-    "nombres": "Fernando",
-    "apellidoPaterno":"Pinedo",
-    "apellidoMaterno": "Orta",
-    "especialidad": 1,
-    "fechaNacimiento": "14/10/1998",
-    "correo": "fernando.pinedo@outlook.com",
-    "telefono": "(844)186-8125",
-    "direccion": "Zafiro #376",
-    "colonia": "Miravalle",
-    "municipio": "Saltillo",
-    "estado": 1
-}
- */
